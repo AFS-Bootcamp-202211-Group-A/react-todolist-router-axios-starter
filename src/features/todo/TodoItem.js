@@ -31,7 +31,8 @@ const TodoItem = (props) => {
         <Card style={{  border: "1px solid black",
                         margin: "auto",
                         marginBottom:"5px",
-                        width:"90%", }}>
+                        width:"90%",
+                         }}>
 
           <Row>
             <Col span={20}>

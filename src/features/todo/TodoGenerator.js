@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addTodoAPI } from "../../api/todos";
 import { addTodo } from "./todoSlice";
 
-import { Button, Input} from 'antd';
+import { Button, Input, Card, Row, Col, Typography } from 'antd';
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
@@ -22,18 +22,35 @@ const TodoGenerator = () => {
   };
 
   return (
-    <>
-     <Input placeholder="input your todo"
-        type="text"
-        name="todo"
-        value={todoText}
-        onChange={onTextChange}
-        defaultValue="0571"
-        style={{ width: '20%' }}
-      />
-      
-      <Button type="primary" onClick={onAdd}>add</Button>
-    </>
+    <Card style={{ border: "1px solid black",
+                    margin: "auto",
+                    marginTop:"20px",
+                    width:"75%",
+                    backgroundColor:"#282b30" }}>
+      <Row>
+        <Col span={3} align={"bottem"}>
+          <Row justify={"end"} >
+            <Typography.Title level={5}  style={{color:"#E1D9D1"}}>
+              New To Do:
+            </Typography.Title >
+          </Row>
+        </Col>
+        <Col span={17}>
+          <Input
+            type="text"
+            name="todo"
+            value={todoText}
+            onChange={onTextChange}
+            defaultValue="0571"
+            style={{backgroundColor:"#424549",color:"#E1D9D1"
+          }}
+          />
+          </Col>
+          <Col span={4}>
+          <Button type="primary" onClick={onAdd}>Add</Button>
+          </Col>
+      </Row>
+    </Card>
   );
 };
 

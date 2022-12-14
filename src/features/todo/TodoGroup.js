@@ -11,10 +11,9 @@ const TodoGroup = (props) => {
   }
   return <div id="scrollableDiv"
             style={{
-              height: "75vh",
+              height: "69vh",
               overflow: 'auto',
               padding: '0 16px',
-              border: '1px solid rgba(140, 140, 140, 0.35)',
             }}>
           <InfiniteScroll
                     dataLength={props.todos.length}
@@ -22,7 +21,7 @@ const TodoGroup = (props) => {
                   >
                 
                   <List
-                          style={{}}
+                          style={{backgroundColor:"#282b30"}}
                           header={
                             <Typography.Title level={2} style={{color:"#E1D9D1"}}>
                               To Do List
