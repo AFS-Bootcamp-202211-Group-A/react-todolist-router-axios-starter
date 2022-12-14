@@ -9,7 +9,6 @@ function DonePage() {
   return todos.map((todo) => {
     return (
       <div>
-        <p>Done Page</p>
         <div className="box" key={todo.id}>
           <span>{todo.text}</span>
         </div>
