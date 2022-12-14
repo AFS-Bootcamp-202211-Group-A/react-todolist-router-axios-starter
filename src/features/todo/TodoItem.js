@@ -1,10 +1,13 @@
 import { useDispatch } from "react-redux";
 import { toggleTodo, deleteTodo } from "./todoSlice";
-import "./TodoItem.css";
 import { updateTodoAPI,  deleteTodoAPI} from "../../api/todos";
+
+import { Button, Typography, Card } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 const TodoItem = (props) => {
   const { todo } = props;
+  const { Text } = Typography;
   const dispatch = useDispatch();
 
   const onToggle = () => {
@@ -20,12 +23,26 @@ const TodoItem = (props) => {
     })
   };
 
+  
+
   return (
-    <div className="box" onClick={onToggle}>
-      <span className={todo.done ? "done" : ""}>{todo.text}</span>
-      <span className="times" onClick={onDelete}>
-        &times;
-      </span>
+    <div onClick={onToggle}>
+      <Card style={{  border: "1px solid black",
+                      margin: "auto",
+                      marginBottom:"5px",
+                      width:"70%", }}>
+        <Text style={{ maxWidth: '100%' }} delete={todo.done ? true : false} >
+          {todo.text}
+        </Text>
+        
+        <Button type="primary" 
+          shape="circle" 
+          icon={<DeleteOutlined />} 
+          size={"small"}
+          onClick={onDelete}
+          style={{marginLeft:30}}
+        />
+      </Card>
     </div>
   );
 };

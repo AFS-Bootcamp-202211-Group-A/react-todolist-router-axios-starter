@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom"
 import AboutPage from "./pages/AboutPage";
 import DoneList from "./pages/DoneList"
 import NotFoundPage from "./pages/NotFoundPage";
-import Layout from "./layout/Layout";
+import LayoutContainer from "./layout/LayoutContainer";
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       
       <Routes>
-        <Route path="/" element={<Layout/>}>
+        <Route path="/" element={<LayoutContainer/>}>
           <Route index element={<TodoList/>}/>
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/donelist" element={<DoneList/>}/>

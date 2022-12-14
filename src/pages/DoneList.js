@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from "react-redux";
-import "../features/todo/TodoItem.css";
 
 export default function DoneList() {
     const todos = useSelector((state) => {
@@ -10,7 +9,7 @@ export default function DoneList() {
      const ListItems = ()=>{
         return todos.filter((todo) => todo.done === true)
             .map((todo)=>{
-            return <div className="box">
+            return <div>
                     <span>{todo.text}</span>
                     </div>;
         })
