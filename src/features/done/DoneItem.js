@@ -5,7 +5,7 @@ const DoneItem = (props) => {
 
   return (
     <div className="box" >
-      <span className={"done"}>{doneItem.text}</span>
+      <span>{doneItem.text}</span>
     </div>
   );
 };
