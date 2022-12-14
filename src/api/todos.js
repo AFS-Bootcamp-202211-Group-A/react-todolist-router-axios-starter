@@ -9,3 +9,7 @@ export const getTodos = ()=>{
     return api.get("/todos")
 }
 
+export const postTodos = (body)=>{
+    return api.post("/todos",body)
+}
+

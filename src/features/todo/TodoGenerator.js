@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { postTodos } from "../../api/todos";
 import { addTodo } from "./todoSlice";
 
 const TodoGenerator = () => {
@@ -12,7 +13,9 @@ const TodoGenerator = () => {
 
   const onAdd = () => {
     const todo = { text: todoText, done: false };
-    dispatch(addTodo(todo));
+    postTodos(todo).then((response)=>{
+      dispatch(addTodo(response.data))
+    })
     setTodoText("");
   };
 
