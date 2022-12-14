@@ -1,0 +1,8 @@
+.modalcolor .ant-modal-content{
+    background-color: rgb(40,43,48,255)
+}
+
+.modalcolor .ant-modal-title{
+    color:rgb(225, 217, 209);
+    background-color: rgb(40,43,48,255)
+}

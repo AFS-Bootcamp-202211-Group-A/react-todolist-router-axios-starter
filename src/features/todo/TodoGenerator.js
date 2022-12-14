@@ -41,7 +41,6 @@ const TodoGenerator = () => {
             name="todo"
             value={todoText}
             onChange={onTextChange}
-            defaultValue="0571"
             style={{backgroundColor:"#424549",color:"#E1D9D1"
           }}
           />

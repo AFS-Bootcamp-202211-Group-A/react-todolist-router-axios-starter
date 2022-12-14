@@ -26,3 +26,7 @@ export const updateTodoAPI = (body)=>{
 export const deleteTodoAPI = (id)=>{
     return api.delete("/todos/"+id)
 }
+
+export const updateTodoContentAPI = (body)=>{
+    return api.put("/todos/"+body.id,body)
+}
