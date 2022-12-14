@@ -13,3 +13,12 @@ export const postTodos = (body)=>{
     return api.post("/todos",body)
 }
 
+
+export const updateTodos = (body)=>{
+    const newBody  = 
+    {
+        "done": !body.done,
+        "text": body.text
+    };
+    return api.put("/todos/"+body.id,newBody)
+}
