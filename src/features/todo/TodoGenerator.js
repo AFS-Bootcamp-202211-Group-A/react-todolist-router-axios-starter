@@ -1,8 +1,10 @@
 import { Button } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postTodo } from "../../api/todos";
 import { addTodo } from "./todoSlice";
+import { Input } from "antd";
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
@@ -24,16 +26,20 @@ const TodoGenerator = () => {
 
   return (
     <>
-      <input
-        placeholder="input your todo"
-        type="text"
-        name="todo"
-        value={todoText}
-        onChange={onTextChange}
-      />
-      <Button type="dashed" onClick={onAdd}>
-        add
-      </Button>
+      <Input.Group compact>
+        <Input
+          style={{
+            width: "calc(100% - 200px)",
+          }}
+          defaultValue="https://ant.design"
+          placeholder="input your todo"
+          type="text"
+          name="todo"
+          value={todoText}
+          onChange={onTextChange}
+        />
+        <Button type="primary">Submit</Button>
+      </Input.Group>
     </>
   );
 };
