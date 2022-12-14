@@ -19,9 +19,7 @@ const TodoItem = (props) => {
 
   return (
     <div className="box" onClick={onToggle}>
-      <span className={!isDoneList && todo.done ? "done" : ""}>
-        {todo.text}
-      </span>
+      <span className={todo.done ? "done" : ""}>{todo.text}</span>
       {!isDoneList && (
         <span className="times" onClick={onDelete}>
           &times;

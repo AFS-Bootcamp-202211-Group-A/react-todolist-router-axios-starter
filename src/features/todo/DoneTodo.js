@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import TodoGroup from "../features/todo/TodoGroup";
+import TodoGroup from "./TodoGroup";
 
-export default function DoneListPage() {
+export default function DoneTodo() {
   const dones = useSelector((state) => {
     return state.todoList.filter((todo) => todo.done);
   });
