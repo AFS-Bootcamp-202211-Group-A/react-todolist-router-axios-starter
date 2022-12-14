@@ -9,10 +9,10 @@ function DonePage() {
   console.log(todos);
   return todos.map((todo) => {
     return (
-       <div className="box" key={todo.id}>
-            <span >{todo.text}</span>
-        </div>
-    )
+      <div className="box" key={todo.id}>
+        <span>{todo.text}</span>
+      </div>
+    );
   });
 }
 
