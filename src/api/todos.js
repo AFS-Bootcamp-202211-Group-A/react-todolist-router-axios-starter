@@ -22,3 +22,7 @@ export const updateTodos = (body)=>{
     };
     return api.put("/todos/"+body.id,newBody)
 }
+
+export const deleteTodos = (id)=>{
+    return api.delete("/todos/"+id)
+}
