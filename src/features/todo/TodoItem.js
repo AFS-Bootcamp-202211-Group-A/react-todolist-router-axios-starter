@@ -50,6 +50,12 @@ const TodoItem = (props) => {
   const [todoText, setTodoText] = useState(todo.text);
   const handleOk = () => {
     // update by api
+    const newTodo = {
+      id: todo.id,
+      text: todoText,
+      done: todo.done,
+    };
+    putTodo(todo.id, newTodo);
     // update store
 
     setIsModalOpen(false);
