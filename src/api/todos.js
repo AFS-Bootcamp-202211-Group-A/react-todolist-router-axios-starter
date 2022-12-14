@@ -11,3 +11,7 @@ export const getTodos = () => {
 export const postTodo = (newTodo) => {
   return api.post("/todos", newTodo);
 };
+
+export const putTodo = (id, newTodo) => {
+  return api.put("/todos/" + id, newTodo);
+};
