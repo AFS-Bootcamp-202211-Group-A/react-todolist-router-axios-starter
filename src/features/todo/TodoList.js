@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTodos } from "../../api/todos";
+import { getTodosAPI } from "../../api/todos";
 import TodoGenerator from "./TodoGenerator";
 import TodoGroup from "./TodoGroup";
 import { addTodos } from "./todoSlice";
@@ -13,7 +13,7 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getTodos().then((response)=>{
+    getTodosAPI().then((response)=>{
       dispatch(addTodos(response.data))
     });
   }, [dispatch]);
