@@ -9,7 +9,7 @@ const initTodos = [
   {
     id: "dd53dc26-b061-6b40-dd99-82b85dd2ce90",
     text: "first todo item",
-    done: false,
+    done: true,
   },
 ];
 
