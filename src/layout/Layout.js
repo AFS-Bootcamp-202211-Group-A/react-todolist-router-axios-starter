@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { AppstoreOutlined, CheckSquareOutlined } from "@ant-design/icons";
+import {
+  AppstoreOutlined,
+  CheckSquareOutlined,
+  QuestionCircleOutlined,
+} from "@ant-design/icons";
 import { Menu } from "antd";
 
 export default function Layout() {
@@ -11,14 +15,14 @@ export default function Layout() {
       icon: <AppstoreOutlined />,
     },
     {
-      label: <Link to="/about">About</Link>,
-      key: "about",
-      icon: <AppstoreOutlined />,
-    },
-    {
       label: <Link to="/done">Done</Link>,
       key: "done",
       icon: <CheckSquareOutlined />,
+    },
+    {
+      label: <Link to="/about">About</Link>,
+      key: "about",
+      icon: <QuestionCircleOutlined />,
     },
   ];
   const [current, setCurrent] = useState("home");
