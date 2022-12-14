@@ -8,14 +8,9 @@ const TodoList = () => {
   const todos = useSelector((state) => {
     return state.todoList;
   });
-  const navigate = useNavigate();
-  const toDonePage = () => {
-    navigate('/done');
-  }
 
   return (
     <>
-    <button onClick={toDonePage}>To Done Page</button>
       <TodoGroup todos={todos} />
       <TodoGenerator />
     </>
