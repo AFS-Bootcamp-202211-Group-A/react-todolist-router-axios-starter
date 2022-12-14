@@ -7,6 +7,7 @@ const TodoItem = (props) => {
   const dispatch = useDispatch();
 
   const onToggle = () => {
+    
     dispatch(toggleTodo(todo.id));
   };
 

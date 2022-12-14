@@ -1,4 +1,3 @@
-import { applyMiddleware } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const api = axios.create({
@@ -9,3 +8,10 @@ export const getTodos = () => {
     return api.get("/todos");
 }
 
+export const postTodos = (todo) => {
+    return api.post("/todos", todo);
+}
+
+
+
+// step1: postTodo({todo})
