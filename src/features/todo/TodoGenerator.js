@@ -32,7 +32,7 @@ const TodoGenerator = () => {
         value={todoText}
         onChange={onTextChange}
       />
-      <Button onClick={onAdd}>add</Button>
+      <Button type="primary" shape="round" size="small" onClick={onAdd}>add</Button>
     </>
   );
 };
