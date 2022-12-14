@@ -26,7 +26,7 @@ const TodoGenerator = () => {
 
   return (
     <>
-      <Input.Group compact>
+      <Input.Group compact style={{ width: "100%", paddingTop: "15px" }}>
         <Input
           style={{
             width: "calc(100% - 200px)",
@@ -36,6 +36,8 @@ const TodoGenerator = () => {
           name="todo"
           value={todoText}
           onChange={onTextChange}
+          showCount
+          maxLength={60}
         />
         <Button type="primary" onClick={onAdd} icon={<PlusOutlined />}>
           Add

@@ -21,8 +21,8 @@ const TodoList = () => {
 
   return (
     <>
-      <TodoGroup todos={todos} done={false} />
       <TodoGenerator />
+      <TodoGroup todos={todos} done={false} />
     </>
   );
 };
