@@ -6,10 +6,18 @@ const api = axios.create({
     baseURL: "https://63996b3e29930e2bb3d23825.mockapi.io",
 });
 
-export const getTodos = () =>{
+export const getTodosAPI = () =>{
     return api.get("/todos");
 }
 
-export const addTodos = (requestBody) =>{
+export const addTodosAPI = (requestBody) =>{
     return api.post("/todos", requestBody);
+}
+
+export const updateTodoAPI = (id, requestBody) =>{
+    return api.put("todos/"+id, requestBody);
+}
+
+export const deleteTodoAPI = (id) =>{
+    return api.delete("todos/"+id);
 }

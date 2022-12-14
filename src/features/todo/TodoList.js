@@ -3,7 +3,7 @@ import TodoGenerator from "./TodoGenerator";
 import TodoGroup from "./TodoGroup";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { getTodos } from "../../api/todo";
+import { getTodosAPI } from "../../api/todo";
 import { addTodos } from "./todoSlice";
 
 const TodoList = (props) => {
@@ -15,7 +15,7 @@ const TodoList = (props) => {
   const dispactch = useDispatch();
 
   useEffect(() => {
-    getTodos().then((response) =>{
+    getTodosAPI().then((response) =>{
         dispactch(addTodos(response.data));
     }); 
   }, [])
