@@ -7,8 +7,5 @@
 }
 
 .box {
-  border: 1px solid #ccc;
-  width: 50%;
   margin: 10px auto;
-  padding: 10px 0;
 }

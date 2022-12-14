@@ -20,10 +20,10 @@ const TodoList = () => {
   }, [dispatch])
 
   return (
-    <>
+    <div id="todoList">
       <TodoGroup todos={todos} />
       <TodoGenerator />
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
 import { toggleTodo, deleteTodo, updateTodo } from "./todoSlice";
-import "./TodoItem.css";
+import { CloseOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import { apiDeleteTodo, putTodo } from "../../api/todos";
+import "./TodoItem.css";
 
 const TodoItem = (props) => {
   const { todo } = props;
@@ -16,18 +18,20 @@ const TodoItem = (props) => {
 
   const onDelete = (event) => {
     event.stopPropagation();
-    apiDeleteTodo(todo.id)
-    .then((response) =>
+    apiDeleteTodo(todo.id).then((response) =>
       dispatch(deleteTodo(response.data.id))
     );
   };
 
   return (
     <div className="box" onClick={onToggle}>
-      <span className={todo.done ? "done" : ""}>{todo.text}</span>
-      <span className="times" onClick={onDelete}>
-        &times;
-      </span>
+      <span className={todo.done ? "done" : ""}>{todo.text}</span>{" "}
+      <Button
+        onClick={onDelete}
+        size={"small"}
+        shape="round"
+        icon={<CloseOutlined style={{ fontSize: "10px" }} />}
+      />
     </div>
   );
 };
