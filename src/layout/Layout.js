@@ -1,17 +1,27 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { Menu } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export default function Layout() {
-    return (
-        <div>
-            <nav>
-                <Link to="/"> Home Page</Link>
-                <Link to="/about"> About Page</Link>
-                <Link to="done"> Done Page</Link>
-            </nav>
-            <div className="content">
-                <Outlet />
-            </div>
-        </div>
-    );
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      <Menu
+        mode="horizontal"
+        defaultSelectedKeys={["/"]}
+        items={[
+          { label: "Home Page", key: "/" },
+          { label: "About Page", key: "/about" },
+          { label: "Done Page", key: "/done" },
+          { label: "404 Page", key: "/*" },
+        ]}
+        onClick={({ key }) => {
+          navigate(key);
+        }}
+      ></Menu>
+      <Outlet/>
+    </div>
+  );
 }

@@ -21,18 +21,12 @@ const TodoList = (props) => {
   }, [])
   
 
-  let navigate = useNavigate();
-  // Somewhere in your code, e.g. inside a handler:
-  
-  const switchTodoDonePage = () => { 
-    props.showDoneItem ? navigate("/") : navigate("/done");
-   }
+  let navigate = useNavigate();  
 
   return (
     <>
-      <TodoGroup todos={todos} />
       <TodoGenerator />
-      <button onClick={switchTodoDonePage}>Show {(props.showDoneItem ? "todo " : "done ")} items</button>
+      <TodoGroup todos={todos} />
     </>
   );
 };
