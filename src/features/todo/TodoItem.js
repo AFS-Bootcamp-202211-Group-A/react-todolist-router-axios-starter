@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { toggleTodo, deleteTodo, putTodo} from "./todoSlice";
+import { toggleTodo, deleteTodo, putTodo } from "./todoSlice";
 import "./TodoItem.css";
 import { putDone, deleteTodoAPI, putText } from "../../api/todos";
 import { Button, Space, Modal, Input } from "antd";
@@ -33,7 +33,7 @@ const TodoItem = (props) => {
 
   const handleOk = () => {
     setIsModalOpen(false);
-    const changedTodo = {...todo, text: message};
+    const changedTodo = { ...todo, text: message };
     putText(todo.id, changedTodo).then((response) => {
       dispatch(putTodo(response.data));
     });
@@ -41,7 +41,6 @@ const TodoItem = (props) => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    setMessage("");
   };
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -57,12 +56,17 @@ const TodoItem = (props) => {
           <Button icon={<DeleteOutlined />} onClick={onDelete} />
           <Button icon={<FormOutlined />} onClick={showModal} />
           <Modal
+            destroyOnClose={true}
             title="Edit text"
             open={isModalOpen}
             onOk={handleOk}
             onCancel={handleCancel}
           >
-            <Input placeholder="Edit content" onChange={handleChange} />
+            <Input
+              allowClear
+              placeholder="Edit content"
+              onChange={handleChange}
+            />
           </Modal>
         </div>
       </Space>
