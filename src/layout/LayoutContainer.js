@@ -6,7 +6,7 @@ import Sider from 'antd/es/layout/Sider';
 import { HomeOutlined, CheckOutlined, MehOutlined } from '@ant-design/icons';
 
 export default function LayoutContainer() {
-  const { Header, Content, Footer } = Layout;
+  const { Content, Footer } = Layout;
   const [collapsed, setCollapsed] = useState(false);
   function getItem(label, key, icon, children, type) {
     return {
@@ -54,8 +54,8 @@ export default function LayoutContainer() {
             </div>
         </Content>
 
-          <Footer theme="dark" style={{ textAlign: 'center',backgroundColor:"#7289da" }}>
-              <body2>Do Your Homework OnTime Limited ©2022| 解決不了問題 - 就解決出問題的人</body2>
+          <Footer theme="dark" style={{ maxHeight:"5px",textAlign: 'center',backgroundColor:"#7289da" }}>
+              <small>Do Your Homework OnTime Limited ©2022| 解決不了問題 - 就解決出問題的人</small>
           </Footer>
         </Layout>
           
