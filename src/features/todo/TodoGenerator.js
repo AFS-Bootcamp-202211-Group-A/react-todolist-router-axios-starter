@@ -1,8 +1,7 @@
-import { applyMiddleware } from "@reduxjs/toolkit";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postTodos } from "../../api/todos";
-import { addTodo, addTodos } from "./todoSlice";
+import { addTodo} from "./todoSlice";
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
