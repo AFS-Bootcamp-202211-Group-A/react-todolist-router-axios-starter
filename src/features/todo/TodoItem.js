@@ -10,7 +10,8 @@ const TodoItem = (props) => {
   const { todo } = props;
   const dispatch = useDispatch();
 
-  const onToggle = () => {
+  const onToggle = (event) => {
+    event.stopPropagation();
     putTodo({
       ...todo,
       done: !todo.done,
@@ -25,10 +26,12 @@ const TodoItem = (props) => {
   };
 
   return (
-    <div className="box" onClick={onToggle}>
+    <div className="box">
       <Row justify="end">
         <Col flex="auto">
-          <span className={todo.done ? "done" : ""}>{todo.text}</span>
+          <span onClick={onToggle} className={todo.done ? "done" : ""}>
+            {todo.text}
+          </span>
         </Col>
         <Col>
           <Button
@@ -37,10 +40,9 @@ const TodoItem = (props) => {
             shape="round"
             icon={<CloseOutlined style={{ fontSize: "10px" }} />}
           />{" "}
-          <TodoModal todo={todo}/>
+          <TodoModal todo={todo} />
         </Col>
       </Row>
-      
     </div>
   );
 };

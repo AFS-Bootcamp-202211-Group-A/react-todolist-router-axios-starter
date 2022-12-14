@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Input, Modal, Button } from "antd";
 import { EditOutlined } from "@ant-design/icons";
+import { putTodo } from "../../api/todos";
+import { useDispatch } from "react-redux";
+import { updateTodo } from "./todoSlice";
 
 export default function TodoModal(props) {
   const { todo } = props;
   const [text, setText] = useState(todo.text);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
     event.stopPropagation();
@@ -15,9 +19,15 @@ export default function TodoModal(props) {
   const showModal = () => {
     setIsModalOpen(true);
   };
-
   const handleOk = () => {
     setIsModalOpen(false);
+
+    putTodo({
+      ...todo,
+      text,
+    }).then((response) => {
+      dispatch(updateTodo(response.data));
+    });
   };
 
   const handleCancel = () => {
