@@ -20,4 +20,8 @@ export const deleteTodos = (todo) => {
     return api.delete(`/todos/${todo.id}`);
 }
 
+export const updateTodos = (todo) => {
+    return api.put(`/todos/${todo.id}`, {text: todo.text});
+}
+
 // step1: postTodo({todo})
