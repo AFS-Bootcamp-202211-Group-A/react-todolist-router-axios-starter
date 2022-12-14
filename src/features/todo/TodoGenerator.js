@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postTodo } from "../../api/todos";
@@ -30,7 +31,9 @@ const TodoGenerator = () => {
         value={todoText}
         onChange={onTextChange}
       />
-      <button onClick={onAdd}>add</button>
+      <Button type="dashed" onClick={onAdd}>
+        add
+      </Button>
     </>
   );
 };
