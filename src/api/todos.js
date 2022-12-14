@@ -12,6 +12,9 @@ export const postTodos = (todo) => {
     return api.post("/todos", todo);
 }
 
+export const toggleTodos = (todo) => {
+    return api.put(`/todos/${todo.id}`, {done: !todo.done});
+}
 
 
 // step1: postTodo({todo})
