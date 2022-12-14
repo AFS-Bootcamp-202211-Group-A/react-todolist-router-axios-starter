@@ -31,13 +31,10 @@ export const todoSlice = createSlice({
     addTodos: (state, action) =>{
       return action.payload;
     },
-    postTodos: (state, action) =>{
-      return action.payload;
-    },
 
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo, addTodos, postTodos } = todoSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo, addTodos } = todoSlice.actions;
 
 export default todoSlice.reducer;

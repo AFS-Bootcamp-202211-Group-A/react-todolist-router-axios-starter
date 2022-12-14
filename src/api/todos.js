@@ -16,5 +16,8 @@ export const toggleTodos = (todo) => {
     return api.put(`/todos/${todo.id}`, {done: !todo.done});
 }
 
+export const deleteTodos = (todo) => {
+    return api.delete(`/todos/${todo.id}`);
+}
 
 // step1: postTodo({todo})
