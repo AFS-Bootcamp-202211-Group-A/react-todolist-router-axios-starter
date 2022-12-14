@@ -15,3 +15,7 @@ export const postTodo = (todo) => {
 export const putTodo = (todo) => {
     return api.put(`/todos/${todo.id}`, todo)
 }
+
+export const apiDeleteTodo = (id) => {
+    return api.delete(`/todos/${id}`);
+}
