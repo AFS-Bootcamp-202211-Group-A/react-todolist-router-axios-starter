@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import DoneList from "./features/done/DoneList";
 import TodoList from "./features/todo/TodoList";
 import AboutPage from "./pages/AboutPage";
+import DoneListPage from "./pages/DoneListPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TodoList />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/done" element={<DoneList />} />
+        <Route path="/done" element={<DoneListPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
