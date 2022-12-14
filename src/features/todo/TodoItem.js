@@ -4,9 +4,8 @@ import {
   CheckSquareOutlined,
 } from "@ant-design/icons";
 import { Card, Input, Modal } from "antd";
-
 import { useDispatch } from "react-redux";
-import { toggleTodo, removeTodo } from "./todoSlice";
+import { removeTodo, updateTodo } from "./todoSlice";
 import "./TodoItem.css";
 import { deleteTodo, putTodo } from "../../api/todos";
 import { useState } from "react";
@@ -23,14 +22,20 @@ const TodoItem = (props) => {
         text: todo.text,
         done: !todo.done,
       };
-      putTodo(todo.id, newTodo);
-      dispatch(toggleTodo(todo.id));
+      putTodo(todo.id, newTodo)
+        .then((response) => {
+          dispatch(updateTodo(response.data));
+        })
+        .catch((error) => console.log(error));
     }
   };
 
   const onDelete = (event) => {
-    deleteTodo(todo.id);
-    dispatch(removeTodo(todo.id));
+    deleteTodo(todo.id)
+      .then((response) => {
+        dispatch(removeTodo(todo.id));
+      })
+      .catch((error) => console.log(error));
   };
 
   const onEdit = (event) => {
@@ -55,9 +60,11 @@ const TodoItem = (props) => {
       text: todoText,
       done: todo.done,
     };
-    putTodo(todo.id, newTodo);
-    // update store
-
+    putTodo(todo.id, newTodo)
+      .then((response) => {
+        dispatch(updateTodo(response.data));
+      })
+      .catch((error) => console.log(error));
     setIsModalOpen(false);
   };
   const handleCancel = () => {
