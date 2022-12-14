@@ -1,12 +1,19 @@
 import { useDispatch } from "react-redux";
 import { toggleTodo, deleteTodo } from "./todoSlice";
 import { toggleTodos, deleteTodos } from "../../api/todos";
+import { Button, Modal } from "antd";
 
 import "./TodoItem.css";
 
 const TodoItem = (props) => {
   const { todo } = props;
   const dispatch = useDispatch();
+
+  const success = () => {
+    Modal.success({
+      content: 'Successfully delete the todo item.',
+    });
+  };
 
   const onToggle = () => {
 
@@ -19,7 +26,8 @@ const TodoItem = (props) => {
   const onDelete = (event) => {
     event.stopPropagation();
     deleteTodos(todo).then( () => {
-      dispatch(deleteTodo(todo.id))
+      dispatch(deleteTodo(todo.id));
+      success();
     })
     
   };
