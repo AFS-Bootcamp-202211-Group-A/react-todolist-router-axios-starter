@@ -33,24 +33,17 @@ const TodoItem = (props) => {
     dispatch(removeTodo(todo.id));
   };
 
+  const hiddenActions = [
+    <CheckSquareOutlined key="done" onClick={onToggle} />,
+    <EditOutlined key="edit" />,
+  ];
+  const persistActions = [<CloseOutlined key="delete" onClick={onDelete} />];
+  const cardActions = isDoneList
+    ? persistActions
+    : [...hiddenActions, persistActions];
+
   return (
-    // <div className="box" onClick={onToggle}>
-    //   <span className={todo.done ? "done" : ""}>{todo.text}</span>
-    //   {!isDoneList && (
-    //     <span className="times" onClick={onDelete}>
-    //       &times;
-    //     </span>
-    //   )}
-    // </div>
-    <Card
-      className="box"
-      style={{ width: 300 }}
-      actions={[
-        <CheckSquareOutlined key="done" onClick={onToggle} />,
-        <EditOutlined key="edit" />,
-        <CloseOutlined key="delete" onClick={onDelete} />,
-      ]}
-    >
+    <Card className="box" style={{ width: 300 }} actions={cardActions}>
       <Meta className={todo.done ? "done" : ""} title={todo.text} />
     </Card>
   );
