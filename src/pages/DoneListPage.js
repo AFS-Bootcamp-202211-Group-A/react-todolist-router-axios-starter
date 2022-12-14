@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import DoneList from "../features/done/DoneList";
 
 export default function DoneListPage() {
   return (
-    <div>DoneListPage</div>
-  )
+    <div>
+      <DoneList />
+    </div>
+  );
 }

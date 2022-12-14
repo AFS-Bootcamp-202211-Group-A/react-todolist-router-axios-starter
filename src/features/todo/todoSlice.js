@@ -11,6 +11,11 @@ const initTodos = [
     text: "first todo item",
     done: false,
   },
+  {
+    id: "dd53dc26-b061-6b40-dd99-82b85dd2ce91",
+    text: "second todo item",
+    done: true,
+  },
 ];
 
 export const todoSlice = createSlice({
