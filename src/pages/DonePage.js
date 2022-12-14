@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import TodoGroup from "../features/todo/TodoGroup";
 
 function DonePage() {
   const todos = useSelector((state) => {
-    return state.todoList.filter((item) => item.done == true);
+    return state.todoList.filter((item) => item.done === true);
   });
   console.log(todos);
   return todos.map((todo) => {
