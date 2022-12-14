@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postTodos } from "../../api/todos";
-import { addTodo} from "./todoSlice";
+import { addTodo } from "./todoSlice";
+import { Button } from "antd";
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const TodoGenerator = () => {
         value={todoText}
         onChange={onTextChange}
       />
-      <button onClick={onAdd}>add</button>
+      <Button onClick={onAdd}>add</Button>
     </>
   );
 };
