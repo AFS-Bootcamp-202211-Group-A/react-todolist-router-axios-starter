@@ -31,14 +31,15 @@ const TodoGenerator = () => {
           style={{
             width: "calc(100% - 200px)",
           }}
-          defaultValue="https://ant.design"
           placeholder="input your todo"
           type="text"
           name="todo"
           value={todoText}
           onChange={onTextChange}
         />
-        <Button type="primary">Submit</Button>
+        <Button type="primary" onClick={onAdd} icon={<PlusOutlined />}>
+          Add
+        </Button>
       </Input.Group>
     </>
   );
