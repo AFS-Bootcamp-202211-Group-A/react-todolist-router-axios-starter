@@ -28,9 +28,9 @@ const TodoGenerator = () => {
                     width:"75%",
                     backgroundColor:"#282b30" }}>
       <Row>
-        <Col span={3} align={"bottem"}>
-          <Row justify={"end"} >
-            <Typography.Title level={5}  style={{color:"#E1D9D1"}}>
+        <Col span={3} >
+          <Row justify={"end"} align={"bottom"} >
+            <Typography.Title level={5}  style={{color:"#E1D9D1", marginRight:"10px"}}>
               New To Do:
             </Typography.Title >
           </Row>
