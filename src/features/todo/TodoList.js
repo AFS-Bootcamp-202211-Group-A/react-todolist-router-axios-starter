@@ -10,7 +10,7 @@ const TodoList = () => {
 
   return (
     <>
-      <TodoGroup todos={todos} />
+      <TodoGroup todos={todos} done={false} />
       <TodoGenerator />
     </>
   );

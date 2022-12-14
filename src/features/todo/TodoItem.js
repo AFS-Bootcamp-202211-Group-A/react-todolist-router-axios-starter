@@ -3,11 +3,13 @@ import { toggleTodo, deleteTodo } from "./todoSlice";
 import "./TodoItem.css";
 
 const TodoItem = (props) => {
-  const { todo } = props;
+  const { todo, done: isDoneList } = props;
   const dispatch = useDispatch();
 
   const onToggle = () => {
-    dispatch(toggleTodo(todo.id));
+    if (!isDoneList) {
+      dispatch(toggleTodo(todo.id));
+    }
   };
 
   const onDelete = (event) => {
@@ -17,10 +19,14 @@ const TodoItem = (props) => {
 
   return (
     <div className="box" onClick={onToggle}>
-      <span className={todo.done ? "done" : ""}>{todo.text}</span>
-      <span className="times" onClick={onDelete}>
-        &times;
+      <span className={!isDoneList && todo.done ? "done" : ""}>
+        {todo.text}
       </span>
+      {!isDoneList && (
+        <span className="times" onClick={onDelete}>
+          &times;
+        </span>
+      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import TodoItem from "./TodoItem";
 
 const TodoGroup = (props) => {
   return props.todos.map((todo) => {
-    return <TodoItem todo={todo} key={todo.id} />;
+    return <TodoItem todo={todo} key={todo.id} done={props.done} />;
   });
 };
 
