@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { toggleTodo, deleteTodo } from "./todoSlice";
+import { toggleTodo, removeTodo } from "./todoSlice";
 import "./TodoItem.css";
-import { putTodo } from "../../api/todos";
+import { deleteTodo, putTodo } from "../../api/todos";
 
 const TodoItem = (props) => {
   const { todo, done: isDoneList } = props;
@@ -21,7 +21,8 @@ const TodoItem = (props) => {
 
   const onDelete = (event) => {
     event.stopPropagation();
-    dispatch(deleteTodo(todo.id));
+    deleteTodo(todo.id);
+    dispatch(removeTodo(todo.id));
   };
 
   return (
