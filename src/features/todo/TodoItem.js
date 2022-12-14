@@ -3,12 +3,13 @@ import {
   CloseOutlined,
   CheckSquareOutlined,
 } from "@ant-design/icons";
-import { Card } from "antd";
+import { Card, Input, Modal } from "antd";
 
 import { useDispatch } from "react-redux";
 import { toggleTodo, removeTodo } from "./todoSlice";
 import "./TodoItem.css";
 import { deleteTodo, putTodo } from "../../api/todos";
+import { useState } from "react";
 
 const { Meta } = Card;
 const TodoItem = (props) => {
@@ -28,23 +29,54 @@ const TodoItem = (props) => {
   };
 
   const onDelete = (event) => {
-    event.stopPropagation();
     deleteTodo(todo.id);
     dispatch(removeTodo(todo.id));
   };
 
+  const onEdit = (event) => {
+    setIsModalOpen(true);
+  };
+
   const hiddenActions = [
     <CheckSquareOutlined key="done" onClick={onToggle} />,
-    <EditOutlined key="edit" />,
+    <EditOutlined key="edit" onClick={onEdit} />,
   ];
   const persistActions = [<CloseOutlined key="delete" onClick={onDelete} />];
   const cardActions = isDoneList
     ? persistActions
     : [...hiddenActions, persistActions];
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [todoText, setTodoText] = useState(todo.text);
+  const handleOk = () => {
+    // update by api
+    // update store
+
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setTodoText(todo.text);
+    setIsModalOpen(false);
+  };
+  const onTodoTextChange = (event) => {
+    setTodoText(event.target.value);
+  };
   return (
     <Card className="box" style={{ width: 300 }} actions={cardActions}>
       <Meta className={todo.done ? "done" : ""} title={todo.text} />
+      <Modal
+        title="Edit todo"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Input
+          showCount
+          maxLength={60}
+          onChange={onTodoTextChange}
+          value={todoText}
+        />
+      </Modal>
     </Card>
   );
 };
