@@ -12,7 +12,6 @@ export default function TodoModal(props) {
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
-    event.stopPropagation();
     setText(event.target.value);
   };
 
@@ -20,27 +19,30 @@ export default function TodoModal(props) {
     setIsModalOpen(true);
   };
   const handleOk = () => {
-    setIsModalOpen(false);
-
     putTodo({
       ...todo,
       text,
     }).then((response) => {
       dispatch(updateTodo(response.data));
     });
+    setIsModalOpen(false);
+    setText(todo.text);
   };
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    setText(todo.text);
   };
 
   return (
     <>
       <Button
+        type="primary"
         onClick={showModal}
         size={"small"}
         shape="round"
         icon={<EditOutlined style={{ fontSize: "10px" }} />}
+        ghost
       />
       <Modal
         title="Update Todo"

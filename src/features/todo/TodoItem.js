@@ -28,19 +28,21 @@ const TodoItem = (props) => {
   return (
     <div className="box">
       <Row justify="end">
-        <Col flex="auto">
-          <span onClick={onToggle} className={todo.done ? "done" : ""}>
+        <Col flex="auto" onClick={onToggle}>
+          <span  className={todo.done ? "done" : ""}>
             {todo.text}
           </span>
         </Col>
         <Col>
+          <TodoModal todo={todo} />
+          {" "}
           <Button
             onClick={onDelete}
             size={"small"}
             shape="round"
             icon={<CloseOutlined style={{ fontSize: "10px" }} />}
-          />{" "}
-          <TodoModal todo={todo} />
+            danger
+          />
         </Col>
       </Row>
     </div>
