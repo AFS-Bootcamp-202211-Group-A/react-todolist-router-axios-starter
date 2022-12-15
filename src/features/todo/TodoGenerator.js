@@ -14,7 +14,7 @@ const TodoGenerator = () => {
   };
 
   const onAdd = () => {
-    const todo = { text: todoText, done: false };
+    const todo = { text: todoText, done: false, color: "#FFFFFF" };
     addTodoAPI(todo).then((response)=>{
       dispatch(addTodo(response.data))
     })

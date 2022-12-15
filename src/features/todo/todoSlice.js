@@ -8,7 +8,7 @@ export const todoSlice = createSlice({
   initialState: initTodos,
   reducers: {
     addTodo: (state, action) => {
-      state.push({ id: Date.now(),color:"#FFFFFF", ...action.payload });
+      state.push({...action.payload });
     },
     toggleTodo: (state, action) => {
       return state.map((todo) =>
