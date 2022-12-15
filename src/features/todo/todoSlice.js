@@ -33,7 +33,7 @@ export const todoSlice = createSlice({
     },
     updateTodo: (state, action) => {
       return state.map((todo) =>
-        todo.id === action.payload ? { ...todo, text: todo.text } : todo
+        todo.id === action.payload.id ? { ...todo, text: action.payload.text } : todo
       );
     },
 

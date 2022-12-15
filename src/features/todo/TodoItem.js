@@ -10,7 +10,7 @@ import "./TodoItem.css";
 const TodoItem = (props) => {
   const { todo } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const[todoText,setText] = useState(props.text);
+  const[todoText,setText] = useState(todo.text);
   const dispatch = useDispatch();
 
   const success = () => {
@@ -37,14 +37,15 @@ const TodoItem = (props) => {
     setIsModalOpen(true);
   };
   const handleOk = () => {
-    const updatedTodo = {id:todo.id, text: todoText, done: todo.done}
-    updateTodos(updatedTodo).then( () => {
-      dispatch(updateTodo(updatedTodo.id))
-    })
+    const updatedTodo = {id:todo.id, text: todoText, done: todo.done};
+    updateTodos(updatedTodo).then( (response) => {
+      dispatch(updateTodo(response.data))
+    });
     setIsModalOpen(false);
-
+    
   };
   const handleCancel = () => {
+    setText(todo.text);
     setIsModalOpen(false);
   };
 
@@ -61,7 +62,7 @@ const TodoItem = (props) => {
       <span className="times" onClick={showModal}><EditOutlined /></span>
 
       <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <Input placeholder="Please type your updated text here" value={todoText} type="text" onChange={updateTextValue} ></Input>
+        <Input value={todoText} type="text" onChange={updateTextValue} ></Input>
       </Modal>
       </div>
   );
