@@ -1,14 +1,8 @@
-.done {
-  text-decoration: line-through;
+.modalcolor .ant-modal-content{
+    background-color: rgb(40,43,48,255)
 }
 
-.times {
-  margin-left: 30px;
-}
-
-.box {
-  border: 1px solid #ccc;
-  width: 50%;
-  margin: 10px auto;
-  padding: 10px 0;
+.modalcolor .ant-modal-title{
+    color:rgb(225, 217, 209);
+    background-color: rgb(40,43,48,255)
 }
