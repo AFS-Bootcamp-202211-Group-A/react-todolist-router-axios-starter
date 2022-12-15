@@ -1,31 +1,41 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { postTodo } from "../../api/todos";
 import { addTodo } from "./todoSlice";
+import { Button, Input } from "antd";
+import './TodoGenerator.css'
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
   const [todoText, setTodoText] = useState("");
+  const nextId = useSelector(
+    (state) => Math.max(state.todoList.map(({ id }) => Number(id))) + 1 || 1
+  );
 
   const onTextChange = (event) => {
     setTodoText(event.target.value);
   };
 
   const onAdd = () => {
-    const todo = { text: todoText, done: false };
-    dispatch(addTodo(todo));
+    postTodo({
+      id: nextId.toString(),
+      text: todoText,
+      done: false,
+    }).then((response) => dispatch(addTodo(response.data)));
     setTodoText("");
   };
 
   return (
     <>
-      <input
+      <Input
+        className="textInput"
         placeholder="input your todo"
         type="text"
         name="todo"
         value={todoText}
         onChange={onTextChange}
       />
-      <button onClick={onAdd}>add</button>
+      <Button onClick={onAdd}>add</Button>
     </>
   );
 };

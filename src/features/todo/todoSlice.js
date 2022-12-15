@@ -11,6 +11,11 @@ const initTodos = [
     text: "first todo item",
     done: false,
   },
+  {
+    id: "dd53dc26-b061-6b40-dd99-82b85dd2ce91",
+    text: "second todo item",
+    done: true,
+  },
 ];
 
 export const todoSlice = createSlice({
@@ -28,9 +33,16 @@ export const todoSlice = createSlice({
     deleteTodo: (state, action) => {
       return state.filter((todo) => todo.id !== action.payload);
     },
+    addTodos: (state, action) => {
+      return action.payload;
+    },
+    updateTodo: (state, action) => {
+      const targetIndex = state.findIndex((todo) => todo.id === action.payload.id);
+      state[targetIndex] = action.payload;
+    }
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo, addTodos, updateTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
