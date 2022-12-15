@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://63996b3629930e2bb3d236e0.mockapi.io"
+    // baseURL: "https://63996b3629930e2bb3d236e0.mockapi.io"
+    baseURL: "http://localhost:8080"
 });
 
 export const getTodosAPI = ()=>{
@@ -28,5 +29,10 @@ export const deleteTodoAPI = (id)=>{
 }
 
 export const updateTodoContentAPI = (body)=>{
-    return api.put("/todos/"+body.id,body)
+    const newBody  = 
+    {
+        "color": body.color,
+        "text": body.text
+    };
+    return api.put("/todos/"+body.id,newBody)
 }
