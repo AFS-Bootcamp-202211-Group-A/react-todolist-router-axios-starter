@@ -30,7 +30,9 @@ const TodoItem = (props) => {
   const [color,setColor] = useState(todo.color);
   const [contentMsg, setcontentMsg] = useState(todo.text);
   const [isModalOpen, setIsModalOpen] = useState(false);
- 
+
+  const [dummyContentMsg, setDummyContentMsg] = useState(todo.text)
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -43,11 +45,13 @@ const TodoItem = (props) => {
       }
     ).then((response)=>{
       dispatch(updateTodo(response.data))
+      setDummyContentMsg(response.data.text);
     })
     setIsModalOpen(false);
   };
 
   const handleCancel = () => {
+    setcontentMsg(dummyContentMsg);
     setIsModalOpen(false);
   };
   const onTextChange = (event) => {
