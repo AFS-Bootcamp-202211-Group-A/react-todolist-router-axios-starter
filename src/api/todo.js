@@ -3,7 +3,7 @@ import axios from "axios";
 //https://63996b3e29930e2bb3d23825.mockapi.io/todos
 
 const api = axios.create({
-    baseURL: "https://63996b3e29930e2bb3d23825.mockapi.io",
+    baseURL: "http://localhost:8080",
 });
 
 export const getTodosAPI = () =>{
@@ -15,6 +15,7 @@ export const addTodosAPI = (requestBody) =>{
 }
 
 export const updateTodoAPI = (id, requestBody) =>{
+    console.log("updates");
     return api.put("todos/"+id, requestBody);
 }
 
