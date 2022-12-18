@@ -4,6 +4,9 @@
 
 .times {
   margin-left: 30px;
+  float: right;
+  padding: 10px ;
+  vertical-align: middle;
 }
 
 .box {
@@ -11,4 +14,11 @@
   width: 50%;
   margin: 10px auto;
   padding: 10px 0;
+}
+
+.boxText {
+  border: 1px solid rgb(166, 184, 241);
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px 20px;
 }
