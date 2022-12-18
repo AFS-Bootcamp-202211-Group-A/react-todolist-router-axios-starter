@@ -1,15 +1,10 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTodos } from "../../api/todos";
-import TodoGenerator from "./TodoGenerator";
 import TodoGroup from "./TodoGroup";
 import { addTodos } from "./todoSlice";
 
-const TodoList = () => {
-  // get the data from store
-  const todos = useSelector((state) => {
-    return state.todoList;
-  });
+export default function DoneTodo() {
   const dispatch = useDispatch();
   useEffect(() => {
     getTodos()
@@ -19,12 +14,12 @@ const TodoList = () => {
       .catch((error) => console.log(error));
   }, [dispatch]);
 
+  const dones = useSelector((state) => {
+    return state.todoList.filter((todo) => todo.done);
+  });
   return (
     <>
-      <TodoGenerator />
-      <TodoGroup todos={todos} done={false} />
+      <TodoGroup todos={dones} done={true} />
     </>
   );
-};
-
-export default TodoList;
+}
